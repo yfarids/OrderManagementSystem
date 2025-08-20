@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  # SQL Server Database
+  database:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: orderdb
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong@Passw0rd
+      - MSSQL_PID=Express
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqldata:/var/opt/mssql
+    networks:
+      - order-network
+
+  # .NET API Backend
+  api:
+    build:
+      context: ./OrderManagement.API
+      dockerfile: Dockerfile
+    container_name: order-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=database,1433;Database=orderDB;User Id=sa;Password=YourStrong@Passw0rd;Encrypt=False;TrustServerCertificate=True;
+    ports:
+      - "5000:80"
+      - "5001:443"
+    depends_on:
+      - database
+    networks:
+      - order-network
+
+  # Angular Frontend
+  frontend:
+    build:
+      context: ./OrderManagement.Front
+      dockerfile: Dockerfile
+    container_name: order-frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - api
+    networks:
+      - order-network
+
+volumes:
+  sqldata:
+
+networks:
+  order-network:
+    driver: bridge

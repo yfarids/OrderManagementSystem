@@ -1,0 +1,118 @@
+# OrderManagementSystem - Monorepo .gitignore
+
+# =================================
+# .NET / Backend (OrderManagement.API)
+# =================================
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NuGet Packages
+*.nupkg
+**/packages/*
+!**/packages/build/
+
+# Entity Framework
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+logs/
+*.log
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+appsettings.Local.json
+appsettings.Production.json
+
+# =================================
+# Angular / Frontend (OrderManagement.Front)
+# =================================
+
+# Dependencies
+OrderManagement.Front/node_modules/
+OrderManagement.Front/npm-debug.log*
+OrderManagement.Front/yarn-debug.log*
+OrderManagement.Front/yarn-error.log*
+
+# Build outputs
+OrderManagement.Front/dist/
+OrderManagement.Front/tmp/
+OrderManagement.Front/out-tsc/
+
+# Angular specific
+OrderManagement.Front/.angular/cache/
+OrderManagement.Front/bazel-out/
+
+# IDE files
+OrderManagement.Front/.vscode/
+OrderManagement.Front/.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Testing
+OrderManagement.Front/coverage/
+OrderManagement.Front/.nyc_output/
+
+# E2E
+OrderManagement.Front/e2e/*.js
+OrderManagement.Front/e2e/*.map
+
+# =================================
+# Global / Root Level
+# =================================
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Archive files
+*.zip
+*.tar.gz
+
+# Documentation build
+docs/_build/
+docs/.doctrees/
+
+# Docker
+.dockerignore
+Dockerfile*
+
+# Deployment
+.env.*
+*.env

@@ -1,0 +1,27 @@
+@OrderManagementSystem_HostAddress = http://localhost:5128
+
+GET {{OrderManagementSystem_HostAddress}}/api/orders/recent?days=7
+Accept: application/json
+
+###
+
+GET {{OrderManagementSystem_HostAddress}}/api/orders
+Accept: application/json
+
+###
+
+GET {{OrderManagementSystem_HostAddress}}/api/orders/11
+Accept: application/json
+
+###
+
+POST {{OrderManagementSystem_HostAddress}}/api/orders
+Accept: application/json
+Content-Type: application/json
+
+{
+  "customerId": 2,
+  "totalAmount": 23.10,
+  "status": "Pending"
+}
+

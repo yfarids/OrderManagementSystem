@@ -1,0 +1,48 @@
+{
+  "name": "order-management-system",
+  "version": "1.0.0",
+  "description": "Full-stack order management application with .NET 9 API and Angular frontend",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:frontend\"",
+    "dev:api": "cd OrderManagement.API && dotnet run",
+    "dev:frontend": "cd OrderManagement.Front && ng serve",
+    "build": "npm run build:api && npm run build:frontend",
+    "build:api": "cd OrderManagement.API && dotnet publish -c Release -o ./publish",
+    "build:frontend": "cd OrderManagement.Front && ng build",
+    "test": "npm run test:api && npm run test:frontend",
+    "test:api": "cd OrderManagement.API && dotnet test",
+    "test:frontend": "cd OrderManagement.Front && npm test",
+    "db:migrate": "cd OrderManagement.API && dotnet ef database update",
+    "db:seed": "cd OrderManagement.API && dotnet run --seed-data",
+    "lint": "npm run lint:frontend",
+    "lint:frontend": "cd OrderManagement.Front && ng lint",
+    "install:all": "npm run install:frontend",
+    "install:frontend": "cd OrderManagement.Front && npm install"
+  },
+  "keywords": [
+    "order-management",
+    "dotnet",
+    "angular",
+    "entity-framework",
+    "sql-server",
+    "web-api",
+    "typescript"
+  ],
+  "author": "yfarids",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yfarids/OrderManagementSystem.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yfarids/OrderManagementSystem/issues"
+  },
+  "homepage": "https://github.com/yfarids/OrderManagementSystem#readme"
+}

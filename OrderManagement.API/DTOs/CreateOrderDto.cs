@@ -1,0 +1,1 @@
+public record CreateOrderDto(int CustomerId, DateTime OrderDate, decimal TotalAmount, string Status);

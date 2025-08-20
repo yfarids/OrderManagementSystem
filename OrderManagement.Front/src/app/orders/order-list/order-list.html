@@ -1,0 +1,14 @@
+<div>
+  <h2>Orders List</h2>
+  <p>This is the orders component!</p>
+  <div *ngIf="orders.length > 0; else noOrders">
+    <ul>
+      <li *ngFor="let order of orders">
+        Order ID: {{ order.orderId }} - Date: {{ order.orderDate }}
+      </li>
+    </ul>
+  </div>
+  <ng-template #noOrders>
+    <p>No orders found or loading...</p>
+  </ng-template>
+</div>

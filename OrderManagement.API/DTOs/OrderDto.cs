@@ -1,0 +1,1 @@
+public record OrderDto(int OrderId, int CustomerId, DateTime OrderDate, decimal TotalAmount, string Status);
